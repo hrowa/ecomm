@@ -25,14 +25,15 @@ const Arrow = styled.div`
   cursor: pointer;
   margin: auto;
   z-index: 2;
-  left: ${props => props.direction === "left" && "10px"};
-  right: ${props => props.direction === "right" && "10px"};
+  right: ${(props) => props.direction === "right" && "10px"};
+  left: ${(props) => props.direction === "left" && "10px"};
 `
 
 const Wrapper = styled.div`
-  height: 10%;
+  height: 100%;
   display: flex;
-  transform: translateX(0vw);
+  transition: all 1.5s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `
 
 const Slide = styled.div`
@@ -40,7 +41,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: ${props => props.bg };
+  background-color: ${props => props.color};
 `
 
 const ImgContainer = styled.div`
@@ -49,7 +50,7 @@ const ImgContainer = styled.div`
 `
 
 const Image = styled.image`
-  height: 80%;
+  //height: 80%;
 `
 
 const InfoContainer = styled.div`
@@ -80,7 +81,11 @@ const Slider = () => {
     const[slideIndex, setSlideIndex] = useState(0);
 
     const handleClick = (direction) => {
-
+        if (direction === "left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+        }
     }
 
     return (
@@ -88,11 +93,12 @@ const Slider = () => {
             <Arrow direction="left" onClick={() => handleClick("left")}>
                 <ArrowLeftOutlined />
             </Arrow>
-            <Wrapper>
+            <Wrapper slideIndex={slideIndex}>
                 {sliderItems.map((item) => (
-                    <Slide bg={item.bg}>
+                    <Slide color={item.bg}>
                     <ImgContainer>
                     <Image src={item.img}/>
+                        {/*<img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41f1fTvA5DL.jpg"/>*/}
                     </ImgContainer>
                     <InfoContainer>
                     <Title>{item.title}</Title>
@@ -102,7 +108,7 @@ const Slider = () => {
                     </Slide>
                 ))}
 
-                <Slide bg="fcf1ed">
+                <Slide color="fcf1ed">
                     <ImgContainer>
                         <Image src="https://i.ibb.co/XsdmR2c/1.png"/>
                     </ImgContainer>
