@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined} from "@material-ui/icons";
+import mobile from "../responsive";
 
 const Info = styled.div`
   opacity: 0;

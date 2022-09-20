@@ -1,80 +1,73 @@
 import styled from 'styled-components'
-import Navbar from "../Components/Navbar";
-import Announcement from "../Components/Announcement";
-import Products from "../Components/Products";
-import NewsLetter from "../Components/NewsLetter";
-import Footer from "../Components/Footer";
 
 const Container = styled.div`
-    
-`
-
-const Title = styled.h1`
-    margin: 20px;
-`
-
-const FilterContainer = styled.div`
-    display: flex;
-  justify-content: space-between;
-`
-
-const Filter = styled.div`
-    margin: 20px;
-`
-
-const FilterText = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(225,225, 225, 0.5), rgba(225,225, 225, 0.5)), url("https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
 `;
 
-const Select = styled.select`
-padding: 10px;
-  margin-right: 20px;
-`
+const Wrapper = styled.div`
+  width: 25%;
+  padding: 20px;
+  background-color: white;
+`;
 
-const Option = styled.option``
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 300;
+`;
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  margin: 10px 0;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Link = styled.a`
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
 
 const ProductList = () => {
     return (
         <Container>
-            <Navbar />
-            <Announcement />
-            <Title>Dresses</Title>
-            <FilterContainer>
-                <Filter>
-                    <FilterText>Filter Products:</FilterText>
-                    <Select>
-                        <Option disabled selected>Color</Option>
-                        <Option>White</Option>
-                        <Option>Black</Option>
-                        <Option>Red</Option>
-                        <Option>Blue</Option>
-                        <Option>Yellow</Option>
-                        <Option>Green</Option>
-                    </Select>
-                    <Select>
-                        <Option disabled selected>Size</Option>
-                        <Option>XS</Option>
-                        <Option>S</Option>
-                        <Option>M</Option>
-                        <Option>L</Option>
-                        <Option>XL</Option>
-                    </Select>
-                </Filter>
-                <Filter>
-                    <FilterText>Sort Products:</FilterText>
-                    <Select>
-                        <Option selected>Newest</Option>
-                        <Option>Price (high to low)</Option>
-                        <Option>Price (low to high)</Option>
-                    </Select>
-                </Filter>
-            </FilterContainer>
-            <Products/>
-            <NewsLetter/>
-            <Footer/>
+            <Wrapper>
+                <Title>
+                    SIGN IN
+                </Title>
+                <Form>
+                    <Input placeholder="username"/>
+                    <Input placeholder="password"/>
+                        <Button>LOGIN</Button>
+                        <Link>FORGOT PASSWORD</Link>
+                        <Link>CREATE A NEW ACCOUNT</Link>
+                </Form>
+            </Wrapper>
         </Container>
     )
 }

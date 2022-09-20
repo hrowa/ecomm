@@ -76,6 +76,8 @@ const Payment = styled.img`
 
 const Footer = () => {
     return (
+        <div>
+            <hr style={{border: "1px solid black", borderRadius: "50%"}}/>
         <Container>
             <Left>
                 <Logo>LEWA</Logo>
@@ -128,6 +130,7 @@ const Footer = () => {
                 </ContactItem>
             </Right>
         </Container>
+        </div>
     )}
 
 export default Footer
