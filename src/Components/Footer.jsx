@@ -80,7 +80,7 @@ const Footer = () => {
             <hr style={{border: "1px solid black", borderRadius: "50%"}}/>
         <Container>
             <Left>
-                <Logo>LEWA</Logo>
+                <Logo>LOGO</Logo>
                 <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores commodi ducimus, eum inventore libero quam quos voluptatum. Aliquam autem beatae consectetur, et fugiat id impedit minus quis rerum velit voluptatibus?</Desc>
                 <SocialContainer>
                     <SocialIcon color="#3B5999">
